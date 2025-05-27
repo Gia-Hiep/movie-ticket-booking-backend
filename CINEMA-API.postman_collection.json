@@ -1,2024 +1,2720 @@
 {
-	"info": {
-		"_postman_id": "b1a28650-adf1-4b99-a819-ddc76eb0e1a4",
-		"name": "CINEMA-API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "43853194"
-	},
-	"item": [
-		{
-			"name": "movies",
-			"item": [
-				{
-					"name": "GetMovies",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/movies",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CreateMovie",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"The New Adventure\",\r\n    \"description\": \"An exciting adventure movie\",\r\n    \"posterUrl\": \"http://example.com/poster.jpg\",\r\n    \"trailerUrl\": \"http://example.com/trailer.mp4\",\r\n    \"duration\": 135,\r\n    \"releaseDate\": \"2025-06-01\",\r\n    \"director\": \"John Doe\",\r\n    \"cast\": \"Actor A, Actor B\",\r\n    \"rating\": 0,\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/movies",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetMovieId",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/movies/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateMovie",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Updated Adventure\",\r\n    \"description\": \"Updated description\",\r\n    \"duration\": 140,\r\n    \"releaseDate\": \"2025-06-01\",\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/movies/11",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies",
-								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteMovie",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/movies/10",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies",
-								"10"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "FindMovie",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/movies/search?query=Adventure",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movies",
-								"search"
-							],
-							"query": [
-								{
-									"key": "query",
-									"value": "Adventure"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Genre",
-			"item": [
-				{
-					"name": "GetGenres",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/genres",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"genres"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CreateGenre",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Comedy\",\r\n    \"description\": \"Funny and light-hearted movies\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/genres",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"genres"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetGenreID",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/genres/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"genres",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateGenre",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Updated Comedy\",\r\n    \"description\": \"Updated description\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/genres/11",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"genres",
-								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteGenre",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/genres/11",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"genres",
-								"11"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "UserPreference",
-			"item": [
-				{
-					"name": "AddPreference",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"genreId\": 1,\r\n    \"preferenceLevel\": 5\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/user-preferences",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"user-preferences"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetUserPreference",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/user-preferences/user/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"user-preferences",
-								"user",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Ticket",
-			"item": [
-				{
-					"name": "BookTicket",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"showtimeId\": 1,\r\n    \"totalAmount\": 200000,\r\n    \"seatIds\": [1, 2]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/tickets",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"tickets"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetTicketUser",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/tickets/user/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"tickets",
-								"user",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "TicketSeat",
-			"item": [
-				{
-					"name": "AddSeatTicket",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"ticketId\": 1,\r\n    \"seatId\": 1,\r\n    \"price\": 100000\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/ticket-seats",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"ticket-seats"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetSeatOfTicket",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/ticket-seats/ticket/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"ticket-seats",
-								"ticket",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Statistic",
-			"item": [
-				{
-					"name": "AddStatistic",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"showtimeId\": 1,\r\n    \"movieId\": 1,\r\n    \"cinemaId\": 1,\r\n    \"revenue\": 1000000,\r\n    \"ticketCount\": 10,\r\n    \"statsDate\": \"2025-05-10\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/statistics",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"statistics"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetStatisticBydate",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/statistics/date-range?start=2025-05-01&end=2025-05-31",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"statistics",
-								"date-range"
-							],
-							"query": [
-								{
-									"key": "start",
-									"value": "2025-05-01"
-								},
-								{
-									"key": "end",
-									"value": "2025-05-31"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Showtime",
-			"item": [
-				{
-					"name": "AddShowTime",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": 1,\r\n    \"cinemaRoomId\": 1,\r\n    \"startTime\": \"2025-05-15T18:00:00\",\r\n    \"endTime\": \"2025-05-15T20:15:00\",\r\n    \"ticketPrice\": 120000,\r\n    \"format\": \"_3D\",\r\n    \"language\": \"Tiếng Anh\",\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/showtimes",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"showtimes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetShowtime",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/showtimes/movie/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"showtimes",
-								"movie",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateShowTime",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": 1,\r\n    \"cinemaRoomId\": 1,\r\n    \"startTime\": \"2025-05-15T18:00:00\",\r\n    \"endTime\": \"2025-05-15T20:15:00\",\r\n    \"ticketPrice\": 130000,\r\n    \"format\": \"_3D\",\r\n    \"language\": \"Tiếng Anh\",\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/showtimes/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"showtimes",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteShowTime",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/showtimes/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"showtimes",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Seat",
-			"item": [
-				{
-					"name": "CreateSeat",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cinemaRoomId\": 1,\r\n    \"seatNumber\": \"A1\",\r\n    \"seatRow\": \"A\",\r\n    \"seatType\": \"VIP\",\r\n    \"priceMultiplier\": 1.5,\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/seats",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"seats"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetSeatByRoom",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/seats/cinema-room/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"seats",
-								"cinema-room",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Review",
-			"item": [
-				{
-					"name": "AddReview",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"movieId\": 1,\r\n    \"rating\": 8,\r\n    \"comment\": \"Great movie!\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/reviews",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"reviews"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetReviewByMovie",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/reviews/movie/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"reviews",
-								"movie",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateReview",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 2,\r\n    \"movieId\": 1,\r\n    \"rating\": 9,\r\n    \"comment\": \"Updated: Excellent movie!\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/reviews/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"reviews",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteReview",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/reviews/4",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"reviews",
-								"4"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Promotion",
-			"item": [
-				{
-					"name": "CreatePromotion",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Winter Discount\",\r\n    \"description\": \"50000 VND off for purchases over 200000 VND\",\r\n    \"discountType\": \"FIXED_AMOUNT\",\r\n    \"discountValue\": 50000,\r\n    \"code\": \"WINTER2025\",\r\n    \"startDate\": \"2025-12-01T00:00:00\",\r\n    \"endDate\": \"2026-01-01T23:59:59\",\r\n    \"minPurchase\": 200000,\r\n    \"maxDiscount\": 100000,\r\n    \"usageLimit\": 100,\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/promotions",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"promotions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ApplyPromotion",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/promotions/apply/WINTER2025",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"promotions",
-								"apply",
-								"WINTER2025"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetPromotionIsActive",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/promotions",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"promotions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdatePromotion",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Updated Winter Discount\",\r\n    \"description\": \"60000 VND off for purchases over 250000 VND\",\r\n    \"discountType\": \"FIXED_AMOUNT\",\r\n    \"discountValue\": 60000,\r\n    \"code\": \"WINTER2025\",\r\n    \"startDate\": \"2025-12-01T00:00:00\",\r\n    \"endDate\": \"2026-01-01T23:59:59\",\r\n    \"minPurchase\": 250000,\r\n    \"maxDiscount\": 120000,\r\n    \"usageLimit\": 150,\r\n    \"usageCount\": 0,\r\n    \"active\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/promotions/4",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"promotions",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeletePromotion",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/promotions/4",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"promotions",
-								"4"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Payment",
-			"item": [
-				{
-					"name": "CreatePayment",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"ticketId\":4,\r\n    \"amount\": 200000,\r\n    \"paymentMethod\": \"CREDIT_CARD\",\r\n    \"paymentDetails\": \"Card ending in 1234\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/payments",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"payments"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Notification",
-			"item": [
-				{
-					"name": "CreateNotification",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"New Movie Release\",\r\n    \"message\": \"Check out our latest movie!\",\r\n    \"type\": \"MOVIE\",\r\n    \"isRead\": false\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/notifications",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"notifications"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetNotificationUnread",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/notifications/user/1/unread",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"notifications",
-								"user",
-								"1",
-								"unread"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "NotificationIsRead",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/notifications/5/read",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"notifications",
-								"5",
-								"read"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "MovieGenre",
-			"item": [
-				{
-					"name": "AssignGenreForMovie",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": 11,\r\n    \"genreId\": 1\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/movie-genres",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movie-genres"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetGenreOfMovie",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/movie-genres/movie/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"movie-genres",
-								"movie",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "LoyaltyPoint",
-			"item": [
-				{
-					"name": "AddLotaltyPoint",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"points\": 50,\r\n    \"transactionType\": \"EARN\",\r\n    \"transactionDetails\": \"Earned from promotion\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/loyalty-points",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"loyalty-points"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetLotaltyPointUser",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/loyalty-points/user/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"loyalty-points",
-								"user",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "FoodOrder",
-			"item": [
-				{
-					"name": "CreateFoodOrder",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"ticketId\": 4,\r\n    \"foodItemId\": 1,\r\n    \"quantity\": 2,\r\n    \"price\": 50000\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/food-orders",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-orders"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetFoodOderByTicket",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/food-orders/ticket/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-orders",
-								"ticket",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "FoodItem",
-			"item": [
-				{
-					"name": "AddFoodItem",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Popcorn\",\r\n    \"description\": \"Large popcorn bucket\",\r\n    \"price\": 30000,\r\n    \"imageUrl\": \"http://example.com/popcorn.jpg\",\r\n    \"category\": \"FOOD\",\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/food-items",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-items"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetFoodByCategory",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/food-items/category/FOOD",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-items",
-								"category",
-								"FOOD"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateFoodItem",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Large Popcorn\",\r\n    \"description\": \"Extra large popcorn bucket\",\r\n    \"price\": 35000,\r\n    \"imageUrl\": \"http://example.com/popcorn.jpg\",\r\n    \"category\": \"FOOD\",\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/food-items/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-items",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteFoodItem",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/food-items/5",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"food-items",
-								"5"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Cinema",
-			"item": [
-				{
-					"name": "GetListCinemas",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/cinemas",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinemas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "AddNewCinema",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Cinema XYZ\",\r\n    \"address\": \"456 Elm Street\",\r\n    \"city\": \"Ho Chi Minh City\",\r\n    \"phone\": \"0987654321\",\r\n    \"description\": \"A luxury cinema\",\r\n    \"imageUrl\": \"http://example.com/cinema_xyz.jpg\",\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/cinemas",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinemas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetCinemaByCity",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/cinemas/city/Hồ Chí Minh",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinemas",
-								"city",
-								"Hồ Chí Minh"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateCinema",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Updated Cinema XYZ\",\r\n    \"address\": \"456 Elm Street\",\r\n    \"city\": \"Ho Chi Minh City\",\r\n    \"phone\": \"0987654321\",\r\n    \"description\": \"A luxury cinema\",\r\n    \"imageUrl\": \"http://example.com/cinema_xyz.jpg\",\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/cinemas/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinemas",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteCinema",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/cinemas/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinemas",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "CinemaRoom",
-			"item": [
-				{
-					"name": "CreateCinemaRoom",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cinemaId\": 1,\r\n    \"name\": \"Room 1\",\r\n    \"capacity\": 100,\r\n    \"roomType\": \"_2D\",\r\n    \"isActive\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/cinema-rooms",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinema-rooms"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetRoomByCinema",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{user_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/cinema-rooms/cinema/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinema-rooms",
-								"cinema",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateCinemaRoom",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cinemaId\": 3,\r\n    \"name\": \"Updated Room 1\",\r\n    \"capacity\": 120,\r\n    \"roomType\": \"_2D\",\r\n    \"isActive\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/cinema-rooms/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinema-rooms",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteCinemaRoom",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{admin_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/cinema-rooms/16",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"cinema-rooms",
-								"16"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"hiepccadmin\",\r\n    \"password\": \"hiepccadmin\",\r\n    \"email\": \"ADMIN11@example.com\",\r\n    \"phoneNumber\": \"0987654321\",\r\n    \"fullName\": \"Regular hiepccadmin\",\r\n    \"role\": \"ADMIN\",\r\n    \"membershipLevel\": \"VIP\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/api/users/register",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"//Fixed response type\r",
-							"pm.environment.set(\"admin_token\", pm.response.text());\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"hiepccadmin\",\r\n    \"password\": \"hiepccadmin\"\r\n}\r\n// {\r\n//     \"username\": \"hiepcc\",\r\n//     \"password\": \"hiepcc\"\r\n// }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/users/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"users",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateProfile",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{user_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Updated22 user\",\r\n    \"phoneNumber\": \"0123456789\",\r\n    \"email\": \"admin222@example.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/api/users/8/profile",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"8",
-						"profile"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateMembership",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{admin_token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "STANDARD",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/api/users/8/membership",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"8",
-						"membership"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "loyalty-points",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{user_token}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"userId\": 8,\r\n    \"points\": 100,\r\n    \"transactionType\": \"EARN\",\r\n    \"transactionDetails\": \"Earned from ticket purchase\",\r\n    \"earnedDate\": \"2025-05-13T10:00:00\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/api/users/loyalty-points",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"loyalty-points"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2fa",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{user_token}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"userId\": 1,\r\n    \"twoFactorCode\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/api/users/2fa",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"2fa"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+    "info": {
+        "_postman_id": "b1a28650-adf1-4b99-a819-ddc76eb0e1a4",
+        "name": "MovieBookingAPI",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "43853194"
+    },
+    "item": [
+        {
+            "name": "Register Admin",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Register Admin returns 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('id');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"hiepccadmin\",\n    \"password\": \"hiepccadmin\",\n    \"email\": \"ADMIN11@example.com\",\n    \"phoneNumber\": \"0987654321\",\n    \"fullName\": \"Regular hiepccadmin\",\n    \"role\": \"ADMIN\",\n    \"membershipLevel\": \"VIP\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/register",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "register"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login Admin",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Login Admin returns 200 and token', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('token');",
+                            "    pm.environment.set('admin_token', jsonData.token);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"hiepccadmin\",\n    \"password\": \"hiepccadmin\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/login",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Register User",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Register User returns 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('id');",
+                            "    pm.environment.set('user_id', jsonData.id);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"hiepccuser\",\n    \"password\": \"hiepccuser\",\n    \"email\": \"user@example.com\",\n    \"phoneNumber\": \"0123456789\",\n    \"fullName\": \"Regular User\",\n    \"role\": \"USER\",\n    \"membershipLevel\": \"STANDARD\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/register",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "register"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login User",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Login User returns 200 and token', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('token');",
+                            "    pm.environment.set('user_token', jsonData.token);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"hiepccuser\",\n    \"password\": \"hiepccuser\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/login",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "movies",
+            "item": [
+                {
+                    "name": "GetMovies",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetMovies returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/movies",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "CreateMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateMovie returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('movie_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"The New Adventure\",\n    \"description\": \"An exciting adventure movie\",\n    \"posterUrl\": \"http://example.com/poster.jpg\",\n    \"trailerUrl\": \"http://example.com/trailer.mp4\",\n    \"duration\": 135,\n    \"releaseDate\": \"2025-06-01\",\n    \"director\": \"John Doe\",\n    \"cast\": \"Actor A, Actor B\",\n    \"rating\": 0,\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/movies",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetMovieId",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetMovieId returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.have.property('id');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/movies/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateMovie returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Updated Adventure\",\n    \"description\": \"Updated description\",\n    \"duration\": 140,\n    \"releaseDate\": \"2025-06-01\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/movies/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteMovie returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/movies/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "FindMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('FindMovie returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/movies/search?query=Adventure",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movies", "search"],
+                            "query": [
+                                {
+                                    "key": "query",
+                                    "value": "Adventure"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Genre",
+            "item": [
+                {
+                    "name": "GetGenres",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetGenres returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/genres",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "genres"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "CreateGenre",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateGenre returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('genre_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Comedy\",\n    \"description\": \"Funny and light-hearted movies\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/genres",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "genres"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetGenreID",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetGenreID returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.have.property('id');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/genres/{{genre_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "genres", "{{genre_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateGenre",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateGenre returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Updated Comedy\",\n    \"description\": \"Updated description\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/genres/{{genre_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "genres", "{{genre_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteGenre",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteGenre returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/genres/{{genre_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "genres", "{{genre_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "UserPreference",
+            "item": [
+                {
+                    "name": "AddPreference",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddPreference returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"genreId\": {{genre_id}},\n    \"preferenceLevel\": 5\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/user-preferences",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "user-preferences"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetUserPreference",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetUserPreference returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/user-preferences/user/{{user_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "user-preferences", "user", "{{user_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Cinema",
+            "item": [
+                {
+                    "name": "GetListCinemas",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetListCinemas returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cinemas",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinemas"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "AddNewCinema",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddNewCinema returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('cinema_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Cinema XYZ\",\n    \"address\": \"456 Elm Street\",\n    \"city\": \"Ho Chi Minh City\",\n    \"phone\": \"0987654321\",\n    \"description\": \"A luxury cinema\",\n    \"imageUrl\": \"http://example.com/cinema_xyz.jpg\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/cinemas",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinemas"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetCinemaByCity",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetCinemaByCity returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cinemas/city/Ho Chi Minh City",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinemas", "city", "Ho Chi Minh City"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateCinema",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateCinema returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Updated Cinema XYZ\",\n    \"address\": \"456 Elm Street\",\n    \"city\": \"Ho Chi Minh City\",\n    \"phone\": \"0987654321\",\n    \"description\": \"A luxury cinema\",\n    \"imageUrl\": \"http://example.com/cinema_xyz.jpg\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/cinemas/{{cinema_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinemas", "{{cinema_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteCinema",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteCinema returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cinemas/{{cinema_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinemas", "{{cinema_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "CinemaRoom",
+            "item": [
+                {
+                    "name": "CreateCinemaRoom",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateCinemaRoom returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('cinema_room_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cinemaId\": {{cinema_id}},\n    \"name\": \"Room 1\",\n    \"capacity\": 100,\n    \"roomType\": \"_2D\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/cinema-rooms",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinema-rooms"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetRoomByCinema",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetRoomByCinema returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cinema-rooms/cinema/{{cinema_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinema-rooms", "cinema", "{{cinema_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateCinemaRoom",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateCinemaRoom returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cinemaId\": {{cinema_id}},\n    \"name\": \"Updated Room 1\",\n    \"capacity\": 120,\n    \"roomType\": \"_2D\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/cinema-rooms/{{cinema_room_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinema-rooms", "{{cinema_room_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteCinemaRoom",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteCinemaRoom returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/cinema-rooms/{{cinema_room_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "cinema-rooms", "{{cinema_room_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Seat",
+            "item": [
+                {
+                    "name": "CreateSeat",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateSeat returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('seat_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cinemaRoomId\": {{cinema_room_id}},\n    \"seatNumber\": \"A1\",\n    \"seatRow\": \"A\",\n    \"seatType\": \"VIP\",\n    \"priceMultiplier\": 1.5,\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/seats",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "seats"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetSeatByRoom",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetSeatByRoom returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/seats/cinema-room/{{cinema_room_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "seats", "cinema-room", "{{cinema_room_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Showtime",
+            "item": [
+                {
+                    "name": "AddShowTime",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddShowTime returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('showtime_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"movieId\": {{movie_id}},\n    \"cinemaRoomId\": {{cinema_room_id}},\n    \"startTime\": \"2025-05-15T18:00:00\",\n    \"endTime\": \"2025-05-15T20:15:00\",\n    \"ticketPrice\": 120000,\n    \"format\": \"_3D\",\n    \"language\": \"Tiếng Anh\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/showtimes",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "showtimes"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetShowtime",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetShowtime returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/showtimes/movie/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "showtimes", "movie", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateShowTime",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateShowTime returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"movieId\": {{movie_id}},\n    \"cinemaRoomId\": {{cinema_room_id}},\n    \"startTime\": \"2025-05-15T18:00:00\",\n    \"endTime\": \"2025-05-15T20:15:00\",\n    \"ticketPrice\": 130000,\n    \"format\": \"_3D\",\n    \"language\": \"Tiếng Anh\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/showtimes/{{showtime_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "showtimes", "{{showtime_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteShowTime",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteShowTime returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/showtimes/{{showtime_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "showtimes", "{{showtime_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Ticket",
+            "item": [
+                {
+                    "name": "BookTicket",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('BookTicket returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('ticket_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"showtimeId\": {{showtime_id}},\n    \"totalAmount\": 200000,\n    \"seatIds\": [{{seat_id}}]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/tickets",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "tickets"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetTicketUser",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetTicketUser returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/tickets/user/{{user_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "tickets", "user", "{{user_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "TicketSeat",
+            "item": [
+                {
+                    "name": "AddSeatTicket",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddSeatTicket returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ticketId\": {{ticket_id}},\n    \"seatId\": {{seat_id}},\n    \"price\": 100000\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/ticket-seats",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "ticket-seats"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetSeatOfTicket",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetSeatOfTicket returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/ticket-seats/ticket/{{ticket_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "ticket-seats", "ticket", "{{ticket_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Statistic",
+            "item": [
+                {
+                    "name": "AddStatistic",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddStatistic returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"showtimeId\": {{showtime_id}},\n    \"movieId\": {{movie_id}},\n    \"cinemaId\": {{cinema_id}},\n    \"revenue\": 1000000,\n    \"ticketCount\": 10,\n    \"statsDate\": \"2025-05-10\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/statistics",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "statistics"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetStatisticByDate",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetStatisticByDate returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/statistics/date-range?start=2025-05-01&end=2025-05-31",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "statistics", "date-range"],
+                            "query": [
+                                {
+                                    "key": "start",
+                                    "value": "2025-05-01"
+                                },
+                                {
+                                    "key": "end",
+                                    "value": "2025-05-31"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Review",
+            "item": [
+                {
+                    "name": "AddReview",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddReview returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('review_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"movieId\": {{movie_id}},\n    \"rating\": 8,\n    \"comment\": \"Great movie!\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "reviews"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetReviewByMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetReviewByMovie returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/movie/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "reviews", "movie", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateReview",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateReview returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"movieId\": {{movie_id}},\n    \"rating\": 9,\n    \"comment\": \"Updated: Excellent movie!\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/{{review_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "reviews", "{{review_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteReview",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteReview returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/reviews/{{review_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "reviews", "{{review_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Promotion",
+            "item": [
+                {
+                    "name": "CreatePromotion",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreatePromotion returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('promotion_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Winter Discount\",\n    \"description\": \"50000 VND off for purchases over 200000 VND\",\n    \"discountType\": \"FIXED_AMOUNT\",\n    \"discountValue\": 50000,\n    \"code\": \"WINTER2025\",\n    \"startDate\": \"2025-12-01T00:00:00\",\n    \"endDate\": \"2026-01-01T23:59:59\",\n    \"minPurchase\": 200000,\n    \"maxDiscount\": 100000,\n    \"usageLimit\": 100,\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/promotions",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "promotions"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "ApplyPromotion",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('ApplyPromotion returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/promotions/apply/WINTER2025",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "promotions", "apply", "WINTER2025"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetPromotionIsActive",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetPromotionIsActive returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/promotions",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "promotions"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdatePromotion",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdatePromotion returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Updated Winter Discount\",\n    \"description\": \"60000 VND off for purchases over 250000 VND\",\n    \"discountType\": \"FIXED_AMOUNT\",\n    \"discountValue\": 60000,\n    \"code\": \"WINTER2025\",\n    \"startDate\": \"2025-12-01T00:00:00\",\n    \"endDate\": \"2026-01-01T23:59:59\",\n    \"minPurchase\": 250000,\n    \"maxDiscount\": 120000,\n    \"usageLimit\": 150,\n    \"usageCount\": 0,\n    \"active\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/promotions/{{promotion_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "promotions", "{{promotion_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeletePromotion",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeletePromotion returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/promotions/{{promotion_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "promotions", "{{promotion_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Payment",
+            "item": [
+                {
+                    "name": "CreatePayment",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreatePayment returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ticketId\": {{ticket_id}},\n    \"amount\": 200000,\n    \"paymentMethod\": \"CREDIT_CARD\",\n    \"paymentDetails\": \"Card ending in 1234\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/payments",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "payments"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Notification",
+            "item": [
+                {
+                    "name": "CreateNotification",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateNotification returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('notification_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"title\": \"New Movie Release\",\n    \"message\": \"Check out our latest movie!\",\n    \"type\": \"MOVIE\",\n    \"isRead\": false\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/notifications",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "notifications"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetNotificationUnread",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetNotificationUnread returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/notifications/user/{{user_id}}/unread",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "notifications", "user", "{{user_id}}", "unread"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NotificationIsRead",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('NotificationIsRead returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/notifications/{{notification_id}}/read",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "notifications", "{{notification_id}}", "read"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "MovieGenre",
+            "item": [
+                {
+                    "name": "AssignGenreForMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AssignGenreForMovie returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"movieId\": {{movie_id}},\n    \"genreId\": {{genre_id}}\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/movie-genres",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movie-genres"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetGenreOfMovie",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetGenreOfMovie returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/movie-genres/movie/{{movie_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "movie-genres", "movie", "{{movie_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "LoyaltyPoint",
+            "item": [
+                {
+                    "name": "AddLoyaltyPoint",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddLoyaltyPoint returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{user_id}},\n    \"points\": 50,\n    \"transactionType\": \"EARN\",\n    \"transactionDetails\": \"Earned from promotion\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/loyalty-points",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "loyalty-points"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetLoyaltyPointUser",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetLoyaltyPointUser returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/loyalty-points/user/{{user_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "loyalty-points", "user", "{{user_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "FoodItem",
+            "item": [
+                {
+                    "name": "AddFoodItem",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('AddFoodItem returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('food_item_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Popcorn\",\n    \"description\": \"Large popcorn bucket\",\n    \"price\": 30000,\n    \"imageUrl\": \"http://example.com/popcorn.jpg\",\n    \"category\": \"FOOD\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/food-items",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-items"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetFoodByCategory",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetFoodByCategory returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/food-items/category/FOOD",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-items", "category", "FOOD"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "UpdateFoodItem",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('UpdateFoodItem returns 200', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Large Popcorn\",\n    \"description\": \"Extra large popcorn bucket\",\n    \"price\": 35000,\n    \"imageUrl\": \"http://example.com/popcorn.jpg\",\n    \"category\": \"FOOD\",\n    \"isActive\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/food-items/{{food_item_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-items", "{{food_item_id}}"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DeleteFoodItem",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('DeleteFoodItem returns 204', function () {",
+                                    "    pm.response.to.have.status(204);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{admin_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/food-items/{{food_item_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-items", "{{food_item_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "FoodOrder",
+            "item": [
+                {
+                    "name": "CreateFoodOrder",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('CreateFoodOrder returns 201', function () {",
+                                    "    pm.response.to.have.status(201);",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.expect(jsonData).to.have.property('id');",
+                                    "    pm.environment.set('food_order_id', jsonData.id);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ticketId\": {{ticket_id}},\n    \"foodItemId\": {{food_item_id}},\n    \"quantity\": 2,\n    \"price\": 50000\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/food-orders",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-orders"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetFoodOrderByTicket",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test('GetFoodOrderByTicket returns 200 and array', function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "    pm.expect(pm.response.json()).to.be.an('array');",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{user_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/food-orders/ticket/{{ticket_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "food-orders", "ticket", "{{ticket_id}}"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "UpdateProfile",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('UpdateProfile returns 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"fullName\": \"Updated User\",\n    \"phoneNumber\": \"0123456789\",\n    \"email\": \"user_updated@example.com\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/{{user_id}}/profile",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "{{user_id}}", "profile"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "UpdateMembership",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('UpdateMembership returns 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"membershipLevel\": \"STANDARD\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/{{user_id}}/membership",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "{{user_id}}", "membership"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "AddLoyaltyPoints",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('AddLoyaltyPoints returns 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": {{user_id}},\n    \"points\": 100,\n    \"transactionType\": \"EARN\",\n    \"transactionDetails\": \"Earned from ticket purchase\",\n    \"earnedDate\": \"2025-05-13T10:00:00\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/loyalty-points",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "loyalty-points"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Enable2FA",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Enable2FA returns 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": {{user_id}},\n    \"twoFactorCode\": \"123456\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/users/2fa",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "users", "2fa"]
+                }
+            },
+            "response": []
+        }
+    ]
 }

@@ -1,0 +1,86 @@
+{
+    "id": "movie-booking-env",
+    "name": "MovieBookingAPI Environment",
+    "values": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080",
+            "enabled": true
+        },
+        {
+            "key": "admin_token",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "user_token",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "user_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "movie_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "genre_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "cinema_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "cinema_room_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "seat_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "showtime_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "ticket_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "review_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "promotion_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "notification_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "food_item_id",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "food_order_id",
+            "value": "",
+            "enabled": true
+        }
+    ]
+}
