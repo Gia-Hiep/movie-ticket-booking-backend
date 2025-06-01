@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -17,6 +20,59 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final LoyaltyPointService loyaltyPointService;
+
+    public List<UserDTO> getAllUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    public UserDTO createUser(UserDTO userDTO) {
+        if (userRepository.existsByUsername(userDTO.getUsername()) || userRepository.existsByEmail(userDTO.getEmail())) {
+            throw new RuntimeException("Tên đăng nhập hoặc email đã tồn tại");
+        }
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setEmail(userDTO.getEmail());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setFullName(userDTO.getFullName());
+        user.setRole(User.Role.valueOf(userDTO.getRole()));
+        user.setMembershipLevel(User.MembershipLevel.valueOf(userDTO.getMembershipLevel()));
+        user.setActive(userDTO.getIsActive());
+        user = userRepository.save(user);
+        return mapToDTO(user);
+    }
+
+    public UserDTO updateUser(Integer id, UserDTO userDTO) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người dùng"));
+        if (!user.getUsername().equals(userDTO.getUsername()) && userRepository.existsByUsername(userDTO.getUsername())) {
+            throw new RuntimeException("Tên đăng nhập đã tồn tại");
+        }
+        if (!user.getEmail().equals(userDTO.getEmail()) && userRepository.existsByEmail(userDTO.getEmail())) {
+            throw new RuntimeException("Email đã tồn tại");
+        }
+        user.setUsername(userDTO.getUsername());
+        if (userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()) {
+            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        }
+        user.setEmail(userDTO.getEmail());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setFullName(userDTO.getFullName());
+        user.setRole(User.Role.valueOf(userDTO.getRole()));
+        user.setMembershipLevel(User.MembershipLevel.valueOf(userDTO.getMembershipLevel()));
+        user.setActive(userDTO.getIsActive());
+        user = userRepository.save(user);
+        return mapToDTO(user);
+    }
+
+    public void deleteUser(Integer id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người dùng"));
+        userRepository.delete(user);
+    }
 
     public UserDTO register(UserDTO userDTO) {
         if (userRepository.existsByUsername(userDTO.getUsername()) || userRepository.existsByEmail(userDTO.getEmail())) {

@@ -15,8 +15,12 @@ public class StripeService {
     }
 
     public String createPaymentIntent(Double amount, String currency) throws StripeException {
+        if (currency.equalsIgnoreCase("vnd") && amount > 10000000000L) {
+            throw new IllegalArgumentException("Số tiền vượt quá giới hạn 10 tỷ VND");
+        }
+        long stripeAmount = currency.equalsIgnoreCase("vnd") ? amount.longValue() : (long) (amount * 100);
         PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-                .setAmount((long) (amount * 100)) // Stripe yêu cầu số tiền tính bằng cent
+                .setAmount(stripeAmount)
                 .setCurrency(currency)
                 .addPaymentMethodType("card")
                 .build();

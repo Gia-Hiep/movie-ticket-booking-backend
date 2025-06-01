@@ -14,4 +14,7 @@ public class UserDTO {
     private String membershipLevel;
     private boolean isActive;
 
+    public boolean getIsActive(){
+        return isActive;
+    }
 }

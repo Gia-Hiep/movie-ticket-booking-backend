@@ -25,10 +25,8 @@ public class ShowtimeService {
     private final CinemaRoomRepository cinemaRoomRepository;
 
     public List<ShowtimeDTO> getShowtimesByMovieId(Integer movieId) {
-        return showtimeRepository.findByMovieIdAndIsActiveTrue(movieId)
-                .stream()
-                .map(this::mapToDTO)
-                .collect(Collectors.toList());
+        List<Showtime> showtimes = showtimeRepository.findByMovieId(movieId);
+        return showtimes.stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
     public ShowtimeDTO getShowtimeById(Integer showtimeId) {
@@ -61,7 +59,6 @@ public class ShowtimeService {
     public ShowtimeDTO mapToDTO(Showtime showtime) {
         ShowtimeDTO dto = new ShowtimeDTO();
         dto.setId(showtime.getId());
-
         // Populate MovieDTO
         Movie movie = showtime.getMovie();
         MovieDTO movieDTO = new MovieDTO();
@@ -77,7 +74,6 @@ public class ShowtimeService {
         movieDTO.setRating(movie.getRating());
         movieDTO.setActive(movie.isActive());
         dto.setMovie(movieDTO);
-
         // Populate CinemaRoomDTO
         CinemaRoom cinemaRoom = showtime.getCinemaRoom();
         CinemaRoomDTO cinemaRoomDTO = new CinemaRoomDTO();
@@ -86,7 +82,6 @@ public class ShowtimeService {
         cinemaRoomDTO.setCapacity(cinemaRoom.getCapacity());
         cinemaRoomDTO.setRoomType(cinemaRoom.getRoomType().name());
         cinemaRoomDTO.setActive(cinemaRoom.isActive());
-
         // Populate CinemaDTO
         Cinema cinema = cinemaRoom.getCinema();
         CinemaDTO cinemaDTO = new CinemaDTO();
@@ -99,14 +94,19 @@ public class ShowtimeService {
         cinemaDTO.setImageUrl(cinema.getImageUrl());
         cinemaDTO.setActive(cinema.isActive());
         cinemaRoomDTO.setCinema(cinemaDTO);
-
         dto.setCinemaRoom(cinemaRoomDTO);
         dto.setStartTime(showtime.getStartTime());
         dto.setEndTime(showtime.getEndTime());
         dto.setTicketPrice(showtime.getTicketPrice());
-        dto.setFormat(showtime.getFormat().name());
+        try {
+            dto.setFormat(showtime.getFormat() != null ? showtime.getFormat().name() : "_2D");
+        } catch (IllegalArgumentException e) {
+            System.err.println("Giá trị format không hợp lệ cho showtime id=" + showtime.getId() + ": " + e.getMessage());
+            dto.setFormat("_2D");
+        }
         dto.setLanguage(showtime.getLanguage());
         dto.setActive(showtime.isActive());
+        System.out.println("Mapping Showtime to DTO: isActive=" + showtime.isActive());
         return dto;
     }
 
@@ -122,6 +122,6 @@ public class ShowtimeService {
         showtime.setTicketPrice(dto.getTicketPrice());
         showtime.setFormat(Showtime.Format.valueOf(dto.getFormat()));
         showtime.setLanguage(dto.getLanguage());
-        showtime.setActive(dto.isActive());
+        showtime.setActive(dto.getIsActive());
     }
 }

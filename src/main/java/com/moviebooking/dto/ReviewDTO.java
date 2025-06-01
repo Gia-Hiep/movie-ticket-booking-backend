@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 public class ReviewDTO {
     private Integer id;
     private Integer userId;
+    private UserDTO user;
+    private MovieDTO movie;
     private Integer movieId;
     private Integer rating;
     private String comment;

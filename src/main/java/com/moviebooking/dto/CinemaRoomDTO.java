@@ -11,4 +11,7 @@ public class CinemaRoomDTO {
     private String roomType;
     private boolean isActive;
 
+    public boolean getIsActive(){
+        return isActive;
+    }
 }

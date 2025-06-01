@@ -20,6 +20,12 @@ public class ReviewController {
         return ResponseEntity.ok(reviewService.getReviewsByMovieId(movieId));
     }
 
+    @GetMapping("/user/{userId}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<ReviewDTO>> getReviewsByUserId(@PathVariable Integer userId) {
+        return ResponseEntity.ok(reviewService.getReviewsByUserId(userId));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<ReviewDTO> createReview(@RequestBody ReviewDTO reviewDTO) {

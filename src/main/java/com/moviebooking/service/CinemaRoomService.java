@@ -77,6 +77,6 @@ public class CinemaRoomService {
         room.setName(dto.getName());
         room.setCapacity(dto.getCapacity());
         room.setRoomType(CinemaRoom.RoomType.valueOf(dto.getRoomType()));
-        room.setActive(dto.isActive());
+        room.setActive(dto.getIsActive());
     }
 }

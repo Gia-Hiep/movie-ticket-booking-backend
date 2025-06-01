@@ -30,21 +30,9 @@ public class PaymentService {
         payment.setTicket(ticket);
         payment.setAmount(paymentDTO.getAmount());
         payment.setPaymentMethod(Payment.PaymentMethod.valueOf(paymentDTO.getPaymentMethod()));
-
-        // Thanh toán qua Stripe
-        if (payment.getPaymentMethod() != Payment.PaymentMethod.CASH) {
-            try {
-                String clientSecret = stripeService.createPaymentIntent(paymentDTO.getAmount(), "usd");
-                payment.setTransactionId(clientSecret);
-                payment.setStatus(Payment.Status.COMPLETED);
-            } catch (StripeException e) {
-                logger.error("Failed to process Stripe payment: {}", e.getMessage(), e);
-                payment.setStatus(Payment.Status.FAILED);
-                payment.setPaymentDetails("Stripe error: " + e.getMessage());
-            }
-        } else {
-            payment.setStatus(Payment.Status.PENDING);
-        }
+        payment.setTransactionId(paymentDTO.getTransactionId());
+        payment.setStatus(paymentDTO.getPaymentMethod().equals("CASH") ? Payment.Status.PENDING : Payment.Status.COMPLETED);
+        payment.setPaymentDetails(paymentDTO.getPaymentDetails());
 
         payment = paymentRepository.save(payment);
         return mapToDTO(payment);

@@ -15,4 +15,7 @@ public class ShowtimeDTO {
     private String language;
     private boolean isActive;
 
+    public boolean getIsActive() {
+        return isActive;
+    }
 }

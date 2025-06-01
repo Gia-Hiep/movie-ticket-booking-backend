@@ -17,4 +17,8 @@ public class MovieDTO {
     private String cast;
     private Float rating;
     private boolean isActive;
+
+    public boolean getIsActive() {
+        return isActive;
+    }
 }

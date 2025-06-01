@@ -52,7 +52,7 @@ public class FoodItemService {
         foodItem.setPrice(dto.getPrice());
         foodItem.setImageUrl(dto.getImageUrl());
         foodItem.setCategory(FoodItem.Category.valueOf(dto.getCategory()));
-        foodItem.setActive(dto.isActive());
+        foodItem.setActive(dto.getIsActive());
     }
 
     public FoodItemDTO updateFoodItem(FoodItemDTO foodItemDTO) {

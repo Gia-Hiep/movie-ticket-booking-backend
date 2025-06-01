@@ -29,30 +29,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        // Bỏ qua các endpoint không yêu cầu xác thực
-        String path = request.getRequestURI();
-        if (path.startsWith("/api/users/register") ||
-                path.startsWith("/api/users/login") ||
-                path.startsWith("/api/movies") ||
-                path.startsWith("/api/cinemas") ||
-                path.startsWith("/api/seats") ||
-                path.startsWith("/api/food-items") ||
-                path.startsWith("/api/payments") ||
-                path.startsWith("/api/cinema-rooms")||
-                path.startsWith("/api/promotions") ||
-                path.startsWith("/api/tickets") ||
-                path.startsWith("/api/food-orders") ||
-                path.startsWith("/api/genres") ||
-                path.startsWith("/api/showtimes") ||
-                path.startsWith("/api/ticket-seats") ||
-                path.startsWith("/api/reviews") ||
-                path.startsWith("/api/user-preferences") ||
-                path.startsWith("/swagger-ui") ||
-                path.startsWith("/v3/api-docs")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);

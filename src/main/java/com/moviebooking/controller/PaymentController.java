@@ -16,7 +16,10 @@ public class PaymentController {
     @PostMapping("/create-intent")
     public ResponseEntity<PaymentIntentResponse> createPaymentIntent(@RequestBody PaymentIntentRequest request) {
         try {
-            String clientSecret = paymentService.createPaymentIntent(request.getAmount(), "usd");
+            String clientSecret = paymentService.createPaymentIntent(
+                    request.getAmount(),
+                    request.getCurrency() != null ? request.getCurrency() : "vnd"
+            );
             return ResponseEntity.ok(new PaymentIntentResponse(clientSecret));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new PaymentIntentResponse("Lỗi khi tạo payment intent: " + e.getMessage()));
@@ -33,13 +36,20 @@ public class PaymentController {
 // DTO để gửi yêu cầu tạo PaymentIntent
 class PaymentIntentRequest {
     private Double amount;
-
+    private String currency;
     public Double getAmount() {
         return amount;
     }
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }
 

@@ -27,6 +27,13 @@ public class NotificationController {
         return ResponseEntity.ok(notificationService.createNotification(notificationDTO));
     }
 
+    @PostMapping("/broadcast")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Void> sendBroadcastNotification(@RequestBody NotificationDTO notificationDTO) {
+        notificationService.sendBroadcastNotification(notificationDTO);
+        return ResponseEntity.ok().build();
+    }
+
     @PutMapping("/{id}/read")
     public ResponseEntity<Void> markNotificationAsRead(@PathVariable Integer id) {
         notificationService.markAsRead(id);

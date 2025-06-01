@@ -83,6 +83,6 @@ public class MovieService {
         movie.setDirector(dto.getDirector());
         movie.setCast(dto.getCast());
         movie.setRating(dto.getRating());
-        movie.setActive(dto.isActive());
+        movie.setActive(dto.getIsActive());
     }
 }

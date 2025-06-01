@@ -1,7 +1,9 @@
 package com.moviebooking.service;
 
+import com.moviebooking.dto.MovieDTO;
 import com.moviebooking.dto.PromotionDTO;
 import com.moviebooking.dto.ReviewDTO;
+import com.moviebooking.dto.UserDTO;
 import com.moviebooking.entity.Promotion;
 import com.moviebooking.entity.Review;
 import com.moviebooking.entity.User;
@@ -23,7 +25,19 @@ public class ReviewService {
     private final MovieRepository movieRepository;
 
     public List<ReviewDTO> getReviewsByMovieId(Integer movieId) {
-        return reviewRepository.findByMovieId(movieId)
+        List<Review> reviews;
+        if (movieId == 0) {
+            reviews = reviewRepository.findAll();
+        } else {
+            reviews = reviewRepository.findByMovieId(movieId);
+        }
+        return reviews.stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<ReviewDTO> getReviewsByUserId(Integer userId) {
+        return reviewRepository.findByUserId(userId)
                 .stream()
                 .map(this::mapToDTO)
                 .collect(Collectors.toList());
@@ -50,7 +64,17 @@ public class ReviewService {
         ReviewDTO dto = new ReviewDTO();
         dto.setId(review.getId());
         dto.setUserId(review.getUser().getId());
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(review.getUser().getId());
+        userDTO.setUsername(review.getUser().getUsername());
+        userDTO.setEmail(review.getUser().getEmail());
+        dto.setUser(userDTO);
         dto.setMovieId(review.getMovie().getId());
+        //thông tin chi tiết phim
+        MovieDTO movieDTO = new MovieDTO();
+        movieDTO.setId(review.getMovie().getId());
+        movieDTO.setTitle(review.getMovie().getTitle());
+        dto.setMovie(movieDTO);
         dto.setRating(review.getRating());
         dto.setComment(review.getComment());
         dto.setCreatedAt(review.getCreatedAt());

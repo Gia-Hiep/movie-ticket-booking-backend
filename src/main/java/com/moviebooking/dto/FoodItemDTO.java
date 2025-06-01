@@ -11,4 +11,8 @@ public class FoodItemDTO {
     private String imageUrl;
     private String category;
     private boolean isActive;
+
+    public boolean getIsActive(){
+        return isActive;
+    }
 }

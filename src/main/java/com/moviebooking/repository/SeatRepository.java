@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Integer> {
     List<Seat> findByCinemaRoomIdAndIsActiveTrue(Integer cinemaRoomId);
+
+    List<Seat> findByCinemaRoomId(Integer cinemaRoomId);
 }

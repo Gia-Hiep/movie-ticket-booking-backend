@@ -19,4 +19,8 @@ public class PromotionDTO {
     private Integer usageLimit;
     private Integer usageCount;
     private boolean isActive;
+
+    public boolean getIsActive(){
+        return isActive;
+    }
 }

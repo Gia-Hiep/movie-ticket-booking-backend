@@ -115,7 +115,7 @@ public class MapperUtil {
         dto.setSeatRow(seat.getSeatRow());
         dto.setSeatType(seat.getSeatType().name());
         dto.setPriceMultiplier(seat.getPriceMultiplier());
-        dto.setActive(seat.isActive());
+        dto.setIsActive(seat.isActive());
         return dto;
     }
 

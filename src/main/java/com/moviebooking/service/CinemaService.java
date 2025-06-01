@@ -55,7 +55,7 @@ public class CinemaService {
         cinema.setPhone(dto.getPhone());
         cinema.setDescription(dto.getDescription());
         cinema.setImageUrl(dto.getImageUrl());
-        cinema.setActive(dto.isActive());
+        cinema.setActive(dto.getIsActive());
     }
 
     public CinemaDTO updateCinema(CinemaDTO cinemaDTO) {

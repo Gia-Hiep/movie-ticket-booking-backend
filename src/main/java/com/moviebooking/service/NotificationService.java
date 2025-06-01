@@ -42,7 +42,6 @@ public class NotificationService {
         notification.setType(Notification.Type.valueOf(notificationDTO.getType()));
         notification = notificationRepository.save(notification);
 
-        // Gửi thông báo đẩy qua Firebase
         try {
             firebaseService.sendPushNotification(notificationDTO.getUserId(), notificationDTO.getTitle(), notificationDTO.getMessage());
         } catch (Exception e) {
@@ -50,6 +49,35 @@ public class NotificationService {
         }
 
         return mapToDTO(notification);
+    }
+
+    public void sendBroadcastNotification(NotificationDTO notificationDTO) {
+        List<User> targetUsers;
+
+        if ("allUsers".equals(notificationDTO.getTarget())) {
+            targetUsers = userRepository.findAll();
+        } else if ("membershipLevel".equals(notificationDTO.getTarget())) {
+            targetUsers = userRepository.findByMembershipLevelInAndIsActiveTrue(notificationDTO.getTargetValues());
+        } else if ("role".equals(notificationDTO.getTarget())) {
+            targetUsers = userRepository.findByRoleInAndIsActiveTrue(notificationDTO.getTargetValues());
+        } else {
+            throw new IllegalArgumentException("Invalid target: " + notificationDTO.getTarget());
+        }
+
+        for (User user : targetUsers) {
+            Notification notification = new Notification();
+            notification.setUser(user);
+            notification.setTitle(notificationDTO.getTitle());
+            notification.setMessage(notificationDTO.getMessage());
+            notification.setType(Notification.Type.valueOf(notificationDTO.getType()));
+            notificationRepository.save(notification);
+
+            try {
+                firebaseService.sendPushNotification(user.getId(), notificationDTO.getTitle(), notificationDTO.getMessage());
+            } catch (Exception e) {
+                System.err.println("Failed to send push notification for user " + user.getId() + ": " + e.getMessage());
+            }
+        }
     }
 
     private NotificationDTO mapToDTO(Notification notification) {

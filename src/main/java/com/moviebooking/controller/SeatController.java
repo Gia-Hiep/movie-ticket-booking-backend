@@ -15,11 +15,15 @@ import java.util.List;
 public class SeatController {
     private final SeatService seatService;
 
+//    @GetMapping("/cinema-room/{cinemaRoomId}")
+//    public ResponseEntity<List<SeatDTO>> getSeatsByCinemaRoomId(@PathVariable Integer cinemaRoomId) {
+//        return ResponseEntity.ok(seatService.getSeatsByCinemaRoomId(cinemaRoomId));
+//    }
     @GetMapping("/cinema-room/{cinemaRoomId}")
-    public ResponseEntity<List<SeatDTO>> getSeatsByCinemaRoomId(@PathVariable Integer cinemaRoomId) {
-        return ResponseEntity.ok(seatService.getSeatsByCinemaRoomId(cinemaRoomId));
+    public ResponseEntity<List<SeatDTO>> getSeatsByCinemaRoomId(@PathVariable Integer cinemaRoomId, @RequestParam Integer showtimeId) {
+        List<SeatDTO> seats = seatService.getSeatsByCinemaRoomId(cinemaRoomId, showtimeId);
+        return ResponseEntity.ok(seats);
     }
-
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<SeatDTO> createSeat(@RequestBody SeatDTO seatDTO) {

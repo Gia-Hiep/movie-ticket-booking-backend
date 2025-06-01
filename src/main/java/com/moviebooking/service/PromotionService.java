@@ -89,6 +89,6 @@ public class PromotionService {
         promotion.setMaxDiscount(dto.getMaxDiscount());
         promotion.setUsageLimit(dto.getUsageLimit());
         promotion.setUsageCount(dto.getUsageCount());
-        promotion.setActive(dto.isActive());
+        promotion.setActive(dto.getIsActive());
     }
 }

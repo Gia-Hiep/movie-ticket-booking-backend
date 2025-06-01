@@ -13,4 +13,7 @@ public class CinemaDTO {
     private String imageUrl;
     private boolean isActive;
 
+    public boolean getIsActive(){
+        return isActive;
+    }
 }
